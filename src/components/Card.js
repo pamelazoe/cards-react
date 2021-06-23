@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 
-const Card = (props) => {
-  const { number, symbol, flipped } = props;
+const Card = ({ number, symbol, flipped, buttonFlip }) => {
   const isNumber = !isNaN(number);
   const isAce = (num, sym) => (num === "A" ? <div id="ace">{sym}</div> : "");
   const [isFlipped, setIsFlipped] = useState(flipped);
+  const choseClass = () => {
+    if (isFlipped && !buttonFlip) {
+      return "flipped";
+    } else if (isFlipped && buttonFlip) return "";
+  };
+
   return (
     <div
-      className={`card ${isFlipped ? "flipped" : ""}`.trim()}
+      className={`card ${choseClass()}`.trim()}
       onClick={() => setIsFlipped(!isFlipped)}>
       <div className="container">
         <div className={`front ${symbol} ${number}`}>

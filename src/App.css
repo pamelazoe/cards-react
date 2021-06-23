@@ -15,7 +15,14 @@ body {
     background-image: url("./assets/a19fe695998927.5ea4615ac25e7.jpg");
     background-size: 2500px;
     background-position: 68% 3%;
-    overflow: hidden;
+    overflow-x: hidden;
+}
+
+button {
+    border: 0;
+    border-radius: 5px;
+    padding: 0.3em 1em;
+    box-shadow: -22px 23px 30px rgba(9, 9, 9, 0.1), inset 1px 1px 1px rgba(9, 9, 9, 0.1);
 }
 
 h1,
@@ -32,6 +39,8 @@ h1 {
 .deck {
     display: flex;
     justify-content: center;
+    width: 100%;
+    flex-flow: wrap;
 }
 
 .deck.table {
