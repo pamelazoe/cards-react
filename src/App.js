@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import React from "react";
 
-function App() {
+import Deck from "./components/deck/deck";
+// import Button from "./components/Button";
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Cards.js</h1>
+      <div className="deck">
+        <Deck title="Cards" path="fulldeck" />
+      </div>
+      <div className="deck table">
+        <Deck title="Table" path="table" flipped="2" />
+      </div>
+      <div className="deck hand">
+        <Deck title="Hand" path="deck/2" flipped="2" flipCards="flipCards" />
+      </div>
+      {/* <Button id="flip" value="flip" />
+      <Button id="hold" value="hold" />
+      <Button id="withdraw" value="withdraw" /> */}
     </div>
   );
-}
+};
 
 export default App;

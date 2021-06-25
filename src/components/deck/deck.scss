@@ -1,0 +1,30 @@
+.deck.hand>.head {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.deck {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-flow: wrap;
+}
+
+.deck.table {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.deck.hand,
+.deck.table {
+    display: flex;
+    justify-content: center;
+}
+
+.deck.hand,
+.deck.table {
+    width: 100%;
+}

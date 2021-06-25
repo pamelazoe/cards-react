@@ -1,0 +1,389 @@
+.card {
+    /* background-color: #fff; */
+    border-radius: 7px;
+    margin: 5px;
+    width: 100px;
+    height: 150px;
+    display: inline-block;
+    position: relative;
+    color: #373737;
+    &.flipped {
+        .container {
+            transform-origin: center left;
+            transition: transform 0.5s ease-in;
+            transform-style: preserve-3d;
+            transform: rotateY(0.5turn) translateX(-100%);
+            background-color: white;
+            border-radius: 7px;
+        }
+    }
+    .symbols div {
+        font-size: 27px;
+        position: absolute;
+    }
+    .container {
+        border-radius: 7px;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        transform-origin: center left;
+        transition: transform 0.5s ease-in;
+        transform-style: preserve-3d;
+        box-shadow: -22px 23px 30px rgba(9, 9, 9, 0.1), inset 1px 1px 1px rgba(9, 9, 9, 0.1);
+        .front {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform: rotateY(0turn);
+            border-radius: 7px;
+            backface-visibility: hidden;
+            &.♦,
+            &.♥ {
+                color: #f55;
+            }
+            &.♠,
+            &.♣ {
+                color: rgb(62, 60, 60);
+            }
+            .card-corner {
+                margin: 5px;
+                text-align: center;
+                position: absolute;
+                font-size: 17px;
+            }
+            .top-left {
+                top: 0px;
+                left: 0px;
+            }
+            .bottom-right {
+                right: 0px;
+                bottom: 0px;
+                transform: rotate(0.5turn);
+            }
+        }
+        .back {
+            height: 100%;
+            width: 100%;
+            background-color: #fff9e3;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            border-radius: 7px;
+            overflow: hidden;
+            background-image: url("../../assets/back2.png");
+            background-size: 227px;
+            background-position: 6.5% 44%;
+            transform: rotateY(-0.5turn);
+            box-shadow: -22px 23px 30px rgba(9, 9, 9, 0.1), inset 1px 1px 1px rgba(9, 9, 9, 0.1);
+            backface-visibility: hidden;
+        }
+    }
+}
+
+.card:hover {
+    z-index: 10;
+}
+
+.symbols {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.front>.card-corner.top-left>.symbol {
+    position: relative;
+    top: -4px;
+}
+
+.front>.card-corner.bottom-right>div:nth-child(2) {
+    position: relative;
+    bottom: 4px;
+}
+
+.front[class$="2"] .symbols div:nth-child(2),
+.front[class$="3"] .symbols div:nth-child(3),
+.front[class$="4"] .symbols div:nth-child(2),
+.front[class$="4"] .symbols div:nth-child(4),
+.front[class$="5"] .symbols div:nth-child(2),
+.front[class$="5"] .symbols div:nth-child(4),
+.front[class$="6"] .symbols div:nth-child(3),
+.front[class$="6"] .symbols div:nth-child(6),
+.front[class$="7"] .symbols div:nth-child(3),
+.front[class$="7"] .symbols div:nth-child(6),
+.front[class$="8"] .symbols div:nth-child(3),
+.front[class$="8"] .symbols div:nth-child(6),
+.front[class$="8"] .symbols div:nth-child(8),
+.front[class$="9"] .symbols div:nth-child(3),
+.front[class$="9"] .symbols div:nth-child(4),
+.front[class$="9"] .symbols div:nth-child(7),
+.front[class$="9"] .symbols div:nth-child(8),
+.front[class$="10"] .symbols div:nth-child(3),
+.front[class$="10"] .symbols div:nth-child(4),
+.front[class$="10"] .symbols div:nth-child(7),
+.front[class$="10"] .symbols div:nth-child(8),
+.front[class$="10"] .symbols div:nth-child(10) {
+    transform: rotate(0.5turn);
+}
+
+.front[class$="2"] .symbols div:nth-child(1),
+.front[class$="2"] .symbols div:nth-child(2),
+.front[class$="3"] .symbols div:nth-child(1),
+.front[class$="3"] .symbols div:nth-child(2),
+.front[class$="3"] .symbols div:nth-child(2),
+.front[class$="3"] .symbols div:nth-child(3),
+.front[class$="5"] .symbols div:nth-child(5),
+.front[class$="7"] .symbols div:nth-child(7),
+.front[class$="8"] .symbols div:nth-child(7),
+.front[class$="8"] .symbols div:nth-child(8),
+.front[class$="9"] .symbols div:nth-child(9),
+.front[class$="10"] .symbols div:nth-child(9),
+.front[class$="10"] .symbols div:nth-child(10) {
+    left: 43px;
+}
+
+.front[class$="2"] .symbols div:nth-child(1),
+.front[class$="3"] .symbols div:nth-child(1) {
+    top: 16px;
+}
+
+.front[class$="2"] .symbols div:nth-child(2),
+.front[class$="3"] .symbols div:nth-child(3) {
+    bottom: 16px;
+}
+
+.front[class$="3"] .symbols div:nth-child(2),
+.front[class$="5"] .symbols div:nth-child(5),
+.front[class$="6"] .symbols div:nth-child(2),
+.front[class$="6"] .symbols div:nth-child(5),
+.front[class$="7"] .symbols div:nth-child(2),
+.front[class$="7"] .symbols div:nth-child(5),
+.front[class$="8"] .symbols div:nth-child(2),
+.front[class$="8"] .symbols div:nth-child(5),
+.front[class$="9"] .symbols div:nth-child(9) {
+    top: 56px;
+}
+
+.front[class$="4"] .symbols div:nth-child(1),
+.front[class$="5"] .symbols div:nth-child(1),
+.front[class$="6"] .symbols div:nth-child(1),
+.front[class$="7"] .symbols div:nth-child(1),
+.front[class$="8"] .symbols div:nth-child(1),
+.front[class$="9"] .symbols div:nth-child(1),
+.front[class$="10"] .symbols div:nth-child(1) {
+    left: 22px;
+    top: 16px;
+}
+
+.front[class$="4"] .symbols div:nth-child(2),
+.front[class$="5"] .symbols div:nth-child(2),
+.front[class$="6"] .symbols div:nth-child(2),
+.front[class$="7"] .symbols div:nth-child(2),
+.front[class$="8"] .symbols div:nth-child(2),
+.front[class$="9"] .symbols div:nth-child(2),
+.front[class$="10"] .symbols div:nth-child(2) {
+    left: 22px;
+    bottom: 16px;
+}
+
+.front[class$="4"] .symbols div:nth-child(3),
+.front[class$="5"] .symbols div:nth-child(3) {
+    right: 22px;
+    top: 16px;
+}
+
+.front[class$="6"] .symbols div:nth-child(3),
+.front[class$="7"] .symbols div:nth-child(3),
+.front[class$="8"] .symbols div:nth-child(3),
+.front[class$="9"] .symbols div:nth-child(3),
+.front[class$="9"] .symbols div:nth-child(4),
+.front[class$="10"] .symbols div:nth-child(3),
+.front[class$="10"] .symbols div:nth-child(4) {
+    left: 22px;
+}
+
+.front[class$="4"] .symbols div:nth-child(4),
+.front[class$="5"] .symbols div:nth-child(4),
+.front[class$="6"] .symbols div:nth-child(4),
+.front[class$="6"] .symbols div:nth-child(5),
+.front[class$="6"] .symbols div:nth-child(6),
+.front[class$="7"] .symbols div:nth-child(4),
+.front[class$="7"] .symbols div:nth-child(5),
+.front[class$="7"] .symbols div:nth-child(6),
+.front[class$="8"] .symbols div:nth-child(4),
+.front[class$="8"] .symbols div:nth-child(5),
+.front[class$="8"] .symbols div:nth-child(6),
+.front[class$="9"] .symbols div:nth-child(5),
+.front[class$="9"] .symbols div:nth-child(6),
+.front[class$="9"] .symbols div:nth-child(7),
+.front[class$="9"] .symbols div:nth-child(8),
+.front[class$="10"] .symbols div:nth-child(5),
+.front[class$="10"] .symbols div:nth-child(6),
+.front[class$="10"] .symbols div:nth-child(7),
+.front[class$="10"] .symbols div:nth-child(8) {
+    right: 22px;
+}
+
+.front[class$="4"] .symbols div:nth-child(1),
+.front[class$="4"] .symbols div:nth-child(3),
+.front[class$="5"] .symbols div:nth-child(1),
+.front[class$="5"] .symbols div:nth-child(3),
+.front[class$="6"] .symbols div:nth-child(1),
+.front[class$="6"] .symbols div:nth-child(4),
+.front[class$="7"] .symbols div:nth-child(1),
+.front[class$="7"] .symbols div:nth-child(4),
+.front[class$="8"] .symbols div:nth-child(1),
+.front[class$="8"] .symbols div:nth-child(4),
+.front[class$="9"] .symbols div:nth-child(1),
+.front[class$="9"] .symbols div:nth-child(5),
+.front[class$="10"] .symbols div:nth-child(1),
+.front[class$="10"] .symbols div:nth-child(5) {
+    top: 16px;
+}
+
+.front[class$="4"] .symbols div:nth-child(2),
+.front[class$="4"] .symbols div:nth-child(4),
+.front[class$="5"] .symbols div:nth-child(2),
+.front[class$="5"] .symbols div:nth-child(4),
+.front[class$="6"] .symbols div:nth-child(3),
+.front[class$="6"] .symbols div:nth-child(6),
+.front[class$="7"] .symbols div:nth-child(3),
+.front[class$="7"] .symbols div:nth-child(6),
+.front[class$="8"] .symbols div:nth-child(3),
+.front[class$="8"] .symbols div:nth-child(6),
+.front[class$="9"] .symbols div:nth-child(4),
+.front[class$="9"] .symbols div:nth-child(8),
+.front[class$="10"] .symbols div:nth-child(4),
+.front[class$="10"] .symbols div:nth-child(8) {
+    bottom: 16px;
+}
+
+.front[class$="7"] .symbols div:nth-child(7),
+.front[class$="8"] .symbols div:nth-child(7) {
+    top: 37px;
+}
+
+.front[class$="8"] .symbols div:nth-child(8) {
+    bottom: 37px;
+}
+
+.front[class$="9"] .symbols div:nth-child(2),
+.front[class$="9"] .symbols div:nth-child(6),
+.front[class$="10"] .symbols div:nth-child(2),
+.front[class$="10"] .symbols div:nth-child(6) {
+    top: 44px;
+}
+
+.front[class$="9"] .symbols div:nth-child(3),
+.front[class$="9"] .symbols div:nth-child(7),
+.front[class$="10"] .symbols div:nth-child(3),
+.front[class$="10"] .symbols div:nth-child(7) {
+    top: 74px;
+}
+
+.front[class$="10"] .symbols div:nth-child(9) {
+    top: 32px;
+}
+
+.front[class$="10"] .symbols div:nth-child(10) {
+    top: 82px;
+}
+
+[class|="front ♣ J"],
+[class|="front ♣ Q"],
+[class|="front ♣ K"],
+[class|="front ♦ J"],
+[class|="front ♦ Q"],
+[class|="front ♦ K"],
+[class|="front ♥ J"],
+[class|="front ♥ Q"],
+[class|="front ♥ K"],
+[class|="front ♠ J"],
+[class|="front ♠ Q"],
+[class|="front ♠ K"] {
+    background-image: url("../../assets/cards.png");
+    background-size: 516px;
+}
+
+[class|="front ♣ J"] {
+    background-position: 7% 97.4%;
+}
+
+[class|="front ♣ Q"] {
+    background-position: 48.8% 97.2%;
+}
+
+[class|="front ♣ K"] {
+    background-position: 91% 97%;
+}
+
+[class|="front ♦ J"] {
+    background-position: 7% 65.7%;
+}
+
+[class|="front ♦ Q"] {
+    background-position: 49% 65.6%;
+}
+
+[class|="front ♦ K"] {
+    background-position: 91% 65.9%;
+}
+
+[class|="front ♥ J"] {
+    background-position: 7% 34.2%;
+}
+
+[class|="front ♥ Q"] {
+    background-position: 49% 34.2%;
+}
+
+[class|="front ♥ K"] {
+    background-position: 91% 34.2%;
+}
+
+[class|="front ♠ J"] {
+    background-position: 7% 2.6%;
+}
+
+[class|="front ♠ Q"] {
+    background-position: 49% 2.7%;
+}
+
+[class|="front ♠ K"] {
+    background-position: 91% 2.7%;
+}
+
+#ace {
+    font-size: 60px !important;
+    top: 29px;
+    left: 33px;
+}
+
+.front.♣.J>.card-corner.top-left,
+.front.♣.Q>.card-corner.top-left,
+.front.♣.K>.card-corner.top-left,
+.front.♦.J>.card-corner.top-left,
+.front.♦.Q>.card-corner.top-left,
+.front.♦.K>.card-corner.top-left,
+.front.♥.J>.card-corner.top-left,
+.front.♥.Q>.card-corner.top-left,
+.front.♥.K>.card-corner.top-left,
+.front.♠.J>.card-corner.top-left,
+.front.♠.Q>.card-corner.top-left,
+.front.♠.K>.card-corner.top-left {
+    left: 2px;
+}
+
+.front.♣.J>.card-corner.bottom-right,
+.front.♣.Q>.card-corner.bottom-right,
+.front.♣.K>.card-corner.bottom-right,
+.front.♦.J>.card-corner.bottom-right,
+.front.♦.Q>.card-corner.bottom-right,
+.front.♦.K>.card-corner.bottom-right,
+.front.♥.J>.card-corner.bottom-right,
+.front.♥.Q>.card-corner.bottom-right,
+.front.♥.K>.card-corner.bottom-right,
+.front.♠.J>.card-corner.bottom-right,
+.front.♠.Q>.card-corner.bottom-right,
+.front.♠.K>.card-corner.bottom-right {
+    right: 2px;
+}
