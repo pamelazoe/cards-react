@@ -8,9 +8,10 @@ const App = () => {
   return (
     <div className="App">
       <h1>Cards.js</h1>
-      <div className="deck">
+
+      {/* <div className="deck">
         <Deck title="Cards" path="fulldeck" />
-      </div>
+      </div> */}
       <div className="deck table">
         <Deck title="Table" path="table" flipped="2" />
       </div>
